@@ -1,7 +1,13 @@
+.Home {
+  width: 100vw;
+  height: 100vh;
+}
+
 .Home-title {
+  margin-top: 6rem;
   text-align: center;
   font-family: 'Stalinist One', cursive;
-  font-size: 4rem;
+  font-size: 8rem;
   font-style: italic;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.35),
     0 0 30px rgba(0, 255, 0, 0.25), 0 0 40px rgba(0, 255, 0, 0.25),
@@ -9,181 +15,235 @@
     0 0 70px rgba(0, 255, 0, 0.25), 0 0 80px rgba(0, 255, 0, 0.25);
 }
 
-.box {
-  position: relative;
-  width: 320px;
-  height: 400px;
+.Home-subtitle {
+  margin-top: 6rem;
+  text-align: center;
+  font-weight: 200;
+}
+
+.Home-container {
+  height: 30vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin: 40px 30px;
-  transition: 0.5s;
+  justify-content: center;
 }
 
-.box::before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 50px;
-  width: 50%;
-  height: 100%;
-  text-decoration: none;
-  background: #fff;
-  border-radius: 8px;
-  transform: skewX(15deg);
-  transition: 0.5s;
-}
-
-.box::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50;
-  width: 50%;
-  height: 100%;
-  background: #fff;
-  border-radius: 8px;
-  transform: skewX(15deg);
-  transition: 0.5s;
-  filter: blur(30px);
-}
-
-.box:hover:before,
-.box:hover:after {
-  transform: skewX(0deg);
-  left: 20px;
-  width: calc(100% - 90px);
-}
-
-.box:nth-child(1):before,
-.box:nth-child(1):after {
-  background: linear-gradient(315deg, #ffbc00, #ff0058);
-}
-
-.box:nth-child(2):before,
-.box:nth-child(2):after {
-  background: linear-gradient(315deg, #03a9f4, #ff0058);
-}
-
-.box:nth-child(3):before,
-.box:nth-child(3):after {
-  background: linear-gradient(315deg, #4dff03, #00d0ff);
-}
-
-.box span {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.box span::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.1s;
-  animation: animate 2s ease-in-out infinite;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-.box:hover span::before {
-  top: -50px;
-  left: 50px;
-  width: 100px;
-  height: 100px;
-  opacity: 1;
-}
-
-.box span::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.signup-form {
+  position: relative;
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: 0.5s;
-  animation: animate 2s ease-in-out infinite;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  animation-delay: -1s;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem;
 }
 
-.box:hover span:after {
-  bottom: -50px;
-  right: 50px;
-  width: 100px;
-  height: 100px;
-  opacity: 1;
+.signup-form::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(
+    to right,
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
+  );
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+}
+
+.signup-form div div {
+  position: absolute;
+  top: -3rem;
+  left: 2rem;
+  color: white !important;
+}
+
+.signup-form input[type='email'] {
+  width: 135%;
+  border-style: none;
+  background: transparent;
+  outline: none;
+  flex-grow: 1;
+  color: #bfd2ff;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+}
+
+.signup-form input[type='email']::-webkit-input-placeholder {
+  color: #7881a1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.signup-form button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.signup-form button {
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  border-radius: 30px;
+  z-index: 1;
+}
+
+.signup-form button {
+  animation: animate 8s linear infinite;
 }
 
 @keyframes animate {
-  0%,
+  0% {
+    background-position: 0%;
+  }
   100% {
-    transform: translateY(10px);
-  }
-
-  50% {
-    transform: translate(-10px);
+    background-position: 400%;
   }
 }
 
-.box .content {
-  position: relative;
-  left: 0;
-  padding: 20px 40px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  z-index: 1;
-  transform: 0.5s;
-  color: #fff;
+.signup-form button:hover {
+  cursor: pointer;
 }
 
-.box:hover .content {
-  left: -25px;
-  padding: 60px 40px;
+.signup-form button:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5%;
 }
 
-.box .content h2 {
-  font-size: 2em;
-  color: #fff;
-  margin-bottom: 10px;
+.signup-form button:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
 }
 
-.box .content p {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-  line-height: 1.4em;
+@media screen and (max-width: 1440px) {
+  .Home-title {
+    font-size: 3.5rem;
+  }
+
+  .Home-subtitle {
+    font-size: 1rem;
+  }
+
+  .Home-container {
+    height: 50vh;
+    justify-content: space-evenly;
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .signup-form input[type='email']::-webkit-input-placeholder {
+    font-size: 1rem;
+    font-weight: 200;
+  }
 }
 
-.box .content a {
-  display: inline-block;
-  font-size: 1.1em;
-  color: #111;
-  background: #fff;
-  padding: 10px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  margin-top: 5px;
+@media screen and (max-width: 1024px) {
+  .Home-title {
+    font-size: 3.5rem;
+  }
+
+  .Home-subtitle {
+    font-size: 1rem;
+  }
+
+  .Home-container {
+    height: 50vh;
+    justify-content: space-evenly;
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .signup-form input[type='email']::-webkit-input-placeholder {
+    font-size: 1rem;
+    font-weight: 200;
+  }
 }
 
-.box .content a:hover {
-  background: #ffcf4d;
-  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+@media screen and (max-width: 414px) {
+  .Home-title {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .Home-subtitle {
+    margin-top: 4rem;
+    font-size: 1rem;
+  }
+
+  .Home-container {
+    height: 60vh;
+    justify-content: space-evenly;
+  }
+
+  .signup-form {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .signup-form input[type='email']::-webkit-input-placeholder {
+    font-size: 1rem;
+    font-weight: 200;
+  }
 }
