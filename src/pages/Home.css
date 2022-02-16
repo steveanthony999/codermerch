@@ -197,6 +197,11 @@
     max-width: 300px;
   }
 
+  .signup-form input[type='email'] {
+    font-size: 1rem;
+    line-height: 1.4rem;
+  }
+
   .signup-form input[type='email']::-webkit-input-placeholder {
     font-size: 1rem;
     font-weight: 200;
