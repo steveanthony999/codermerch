@@ -171,6 +171,13 @@
   animation: animate 8s linear infinite;
 }
 
+.Home-disclaimer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 0, 0, 0.75);
+}
+
 @media screen and (max-width: 1440px) {
   .Home-title {
     font-size: 3.5rem;

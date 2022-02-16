@@ -40,6 +40,10 @@ const Home = () => {
           )}
         />
       </div>
+      <p className='Home-disclaimer'>
+        * your welcome email from steve@codermerch.com may end up in your spam
+        box. Remove from spam if you'd like to keep receiving emails.
+      </p>
     </div>
   );
 };
