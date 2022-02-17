@@ -1,6 +1,5 @@
 .Home {
   width: 100vw;
-  height: 100vh;
 }
 
 .Home-title {
@@ -264,6 +263,13 @@
     height: 40px;
     line-height: 30px;
     font-size: 14px;
+  }
+
+  .Home-disclaimer {
+    text-align: justify;
+    font-size: 0.65rem;
+    font-weight: 200;
+    margin-top: 1rem;
   }
 }
 
