@@ -269,7 +269,7 @@
     text-align: justify;
     font-size: 0.65rem;
     font-weight: 200;
-    margin-top: 1rem;
+    margin-top: -4rem;
   }
 }
 
@@ -280,6 +280,10 @@
 
   .Home-container {
     height: 50vh;
+  }
+
+  .Home-disclaimer {
+    margin-top: -1rem;
   }
 }
 
@@ -301,5 +305,9 @@
     height: 40px;
     line-height: 30px;
     font-size: 14px;
+  }
+
+  .Home-disclaimer {
+    margin-top: 1rem;
   }
 }
