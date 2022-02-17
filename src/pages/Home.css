@@ -133,10 +133,28 @@
 }
 
 .signup-form button {
-  animation: animate 8s linear infinite;
+  animation: animate 18s linear infinite;
 }
 
 @keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-moz-keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-webkit-keyframes animate {
   0% {
     background-position: 0%;
   }
@@ -166,6 +184,7 @@
 
 .signup-form button:hover:before {
   filter: blur(20px);
+  -webkit-filter: blur(20px);
   opacity: 1;
   animation: animate 8s linear infinite;
 }
@@ -229,6 +248,12 @@
   .signup-form input[type='email']::-webkit-input-placeholder {
     font-size: 1rem;
     font-weight: 200;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signup-form button:hover {
+    cursor: default;
   }
 }
 
