@@ -236,7 +236,7 @@
 @media screen and (max-width: 414px) {
   .Home-title {
     margin-top: 4rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .Home-subtitle {
@@ -257,5 +257,43 @@
   .signup-form input[type='email']::-webkit-input-placeholder {
     font-size: 1rem;
     font-weight: 200;
+  }
+
+  .signup-form button {
+    width: 160px;
+    height: 40px;
+    line-height: 30px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .Home-subtitle {
+    margin-top: 3rem;
+  }
+
+  .Home-container {
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Home-title {
+    font-size: 1.5rem;
+  }
+
+  .Home-subtitle {
+    margin-top: 2rem;
+  }
+
+  .Home-container {
+    height: 50vh;
+  }
+
+  .signup-form button {
+    width: 160px;
+    height: 40px;
+    line-height: 30px;
+    font-size: 14px;
   }
 }
