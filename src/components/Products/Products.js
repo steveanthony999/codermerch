@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material';
-
 import Product from './Product';
+
+import './Products.css';
 
 const products = [
   {
@@ -21,14 +21,14 @@ const products = [
 
 const Products = () => {
   return (
-    <main>
-      <Grid container justify='center' spacing={4}>
+    <main className='Products'>
+      <div className='Products-container'>
         {products.map((product) => (
-          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+          <div key={product.id}>
             <Product product={product} />
-          </Grid>
+          </div>
         ))}
-      </Grid>
+      </div>
     </main>
   );
 };

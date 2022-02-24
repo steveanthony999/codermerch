@@ -1,5 +1,7 @@
 import Products from '../components/Products/Products';
 
+import './AllProductsPage.css';
+
 const AllProductsPage = () => {
   return (
     <div className='AllProductsPage'>
