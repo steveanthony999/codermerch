@@ -8,3 +8,7 @@ Run npm install
 
 React
 React Router Dom
+Stripe
+Commerce Js
+Material UI
+React Mailchimp Subscribe
