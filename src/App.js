@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import AllProductsPage from './pages/AllProductsPage';
 import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
 function App() {
   const [inDevelopment, setInDevelopment] = useState(true);
@@ -120,6 +121,14 @@ function App() {
         </Route>
         <Route exact path='/products/:id'>
           <ProductPage onAddToCart={handleAddToCart} />
+        </Route>
+        <Route exact path='/cart'>
+          <CartPage
+            cart={cart}
+            onEmptyCart={handleEmptyCart}
+            onRemoveFromCart={handleRemoveFromCart}
+            onUpdateCartQty={handleUpdateCartQty}
+          />
         </Route>
       </Switch>
       {inDevelopment ? null : <Footer />}
