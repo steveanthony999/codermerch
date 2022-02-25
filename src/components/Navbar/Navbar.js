@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag, faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -8,7 +8,7 @@ import './Navbar.css';
 import logo from '../../assets/logo_1.png';
 import logoSmall from '../../assets/logo_1_small.png';
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   const isSmallScreen = useMediaQuery({ query: '(max-width: 1024px)' });
 
   return (
@@ -35,6 +35,7 @@ const Navbar = () => {
               icon={faShoppingBag}
               size={isSmallScreen ? '1x' : '2x'}
             />
+            <p>(&nbsp;{cart}&nbsp;)</p>
           </Link>
         </div>
       </div>

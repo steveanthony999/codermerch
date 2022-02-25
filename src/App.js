@@ -110,7 +110,7 @@ function App() {
 
   return (
     <div className='App'>
-      {inDevelopment ? null : <Navbar />}
+      {inDevelopment ? null : <Navbar cart={cart.total_items} />}
       <Switch>
         <Route exact path='/'>
           <Home />

@@ -17,3 +17,26 @@
 .Navbar-container-center a {
   margin-right: 2rem;
 }
+
+/* .Navbar-container-right a {
+  position: relative;
+}
+
+.Navbar-container-right a p {
+  position: absolute;
+  top: -10%;
+  left: 29%;
+  color: darkred;
+  font-size: 1.25rem;
+  font-weight: 600;
+} */
+
+.Navbar-container-right a {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-container-right a p {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
