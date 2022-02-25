@@ -10,5 +10,14 @@
 
 body {
   background: #111111;
-  color: greenyellow;
+  color: rgba(0, 255, 0, 1);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(0, 255, 0, 1);
+}
+
+h1 {
+  font-weight: 600;
 }

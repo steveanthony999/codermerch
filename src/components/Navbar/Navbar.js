@@ -1,3 +1,7 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 
 import logo from '../../assets/logo_1.png';
@@ -5,27 +9,16 @@ import logo from '../../assets/logo_1.png';
 const Navbar = () => {
   return (
     <nav className='Navbar'>
-      {/* <AppBar position='fixed' className={classes.appBar} color='inherit'>
-        <Toolbar>
-          <Typography variant='h6' className={classes.title} color='inherit'>
-            <img
-              src={logo}
-              alt='coder_merch'
-              height='25px'
-              className={classes.image}
-            />
-            coderMerch
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.button}>
-            <IconButton aria-label='show cart items' color='inherit'>
-              <Badge badgeContent={2} color='secondary'>
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar> */}
+      <div className='Navbar-container'>
+        <Link to='/'>
+          <img src={logo} alt='coder_merch' height='25px' />
+        </Link>
+        <div>
+          <Link to='/cart'>
+            <FontAwesomeIcon icon={faShoppingBag} size={'2x'} />
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 };
