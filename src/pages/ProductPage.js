@@ -35,6 +35,12 @@ const ProductPage = ({ onAddToCart }) => {
           className='ProductPage-image'
         />
         <h1>{location.state.name}</h1>
+        <div
+          className='ProductPage-description'
+          dangerouslySetInnerHTML={{
+            __html: location.state.description,
+          }}
+        ></div>
         <p>${location.state.price.raw} USD</p>
         <select name='sizes' id='' onChange={handleSizeChange}>
           <option value={null} id='sizes'>
@@ -51,6 +57,12 @@ const ProductPage = ({ onAddToCart }) => {
             </option>
           ))}
         </select>
+        <p>SIZE GUIDE</p>
+        <img
+          src={location.state.assets[1].url}
+          alt='sizechart'
+          className='ProductPage-sizeguide'
+        />
         <button
           className={
             isCartButtonActive ? 'ProductPage-btn' : 'ProductPage-btn-disabled'
