@@ -1,5 +1,6 @@
 .Home {
   width: 100vw;
+  min-height: 79vh;
 }
 
 .Home-title {

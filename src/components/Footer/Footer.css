@@ -1,9 +1,8 @@
 .Footer {
   width: 100vw;
   padding: 2rem;
-  position: absolute;
-  box-shadow: 0 -10px 20px rgba(0, 255, 0, 0.25);
-  bottom: 0;
+  box-shadow: 0 -20px 20px rgba(0, 255, 0, 0.15);
+  margin-top: 4rem;
 }
 
 .Footer-bottom {

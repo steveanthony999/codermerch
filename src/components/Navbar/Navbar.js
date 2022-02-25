@@ -25,8 +25,8 @@ const Navbar = () => {
         </div>
         {isSmallScreen ? null : (
           <div className='Navbar-container-center'>
-            <Link to='/'>home</Link>
-            <Link to='/products'>products</Link>
+            <Link to='/'>HOME</Link>
+            <Link to='/products'>SHOP</Link>
           </div>
         )}
         <div className='Navbar-container-right'>

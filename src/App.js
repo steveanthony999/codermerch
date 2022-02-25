@@ -17,6 +17,7 @@ function App() {
         <Route path='/products'>
           <AllProductsPage />
         </Route>
+        <Route path='/products/:id'>{/* <AllProductsPage /> */}</Route>
       </Switch>
       <Footer />
     </div>
