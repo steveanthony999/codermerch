@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 
 import Home from './pages/Home';
 import AllProductsPage from './pages/AllProductsPage';
+import ProductPage from './pages/ProductPage';
 
 function App() {
   const [inDevelopment, setInDevelopment] = useState(true);
@@ -23,8 +24,6 @@ function App() {
     fetchProducts();
   }, []);
 
-  console.log(products);
-
   return (
     <div className='App'>
       {inDevelopment ? null : <Navbar />}
@@ -32,10 +31,12 @@ function App() {
         <Route exact path='/'>
           <Home />
         </Route>
-        <Route path='/products'>
+        <Route exact path='/products'>
           <AllProductsPage products={products} />
         </Route>
-        <Route path='/products/:id'>{/* <AllProductsPage /> */}</Route>
+        <Route exact path='/products/:id'>
+          <ProductPage />
+        </Route>
       </Switch>
       {inDevelopment ? null : <Footer />}
     </div>
