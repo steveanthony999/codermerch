@@ -2,7 +2,7 @@ import Products from '../components/Products/Products';
 
 import './AllProductsPage.css';
 
-const AllProductsPage = () => {
+const AllProductsPage = ({ products }) => {
   return (
     <div className='AllProductsPage'>
       <div className='AllProductsPage-container'>
@@ -10,7 +10,7 @@ const AllProductsPage = () => {
           <h1>All Products</h1>
         </div>
         <div className='AllProductsPage-container-body'>
-          <Products />
+          <Products products={products} />
         </div>
       </div>
     </div>
