@@ -1,0 +1,13 @@
+.Footer {
+  width: 100vw;
+  padding: 2rem;
+  position: absolute;
+  box-shadow: 0 -10px 20px rgba(0, 255, 0, 0.25);
+  bottom: 0;
+}
+
+.Footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

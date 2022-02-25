@@ -1,14 +1,19 @@
 .AllProductsPage {
   width: 100vw;
+  padding: 2rem;
   display: flex;
   justify-content: center;
 }
 
 .AllProductsPage-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
 }
 
-/* .AllProductsPage-container-head h1 {
-  font-weight: 600;
-} */
+.AllProductsPage-container-head {
+  margin-top: 2rem;
+}
+
+.AllProductsPage-container-body {
+  margin-top: 2rem;
+}
