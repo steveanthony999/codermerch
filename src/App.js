@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import AllProductsPage from './pages/AllProductsPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   const [inDevelopment, setInDevelopment] = useState(true);
@@ -128,6 +129,15 @@ function App() {
             onEmptyCart={handleEmptyCart}
             onRemoveFromCart={handleRemoveFromCart}
             onUpdateCartQty={handleUpdateCartQty}
+          />
+        </Route>
+        <Route exact path='/checkout'>
+          <CheckoutPage
+            cart={cart}
+            order={order}
+            onCaptureCheckout={handleCaptureCheckout}
+            error={errorMessage}
+            userDataFromStorage={userDataFromStorage}
           />
         </Route>
       </Switch>
