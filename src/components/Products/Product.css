@@ -15,7 +15,7 @@
 
 .Product-bottom {
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 4rem;
   display: flex;
   justify-content: space-between;
 }
@@ -41,5 +41,9 @@
 @media screen and (max-width: 500px) {
   .Product-image {
     width: 160px;
+  }
+
+  .Product-bottom {
+    padding: 2rem 2rem;
   }
 }
