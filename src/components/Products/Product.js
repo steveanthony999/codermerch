@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { commerce } from '../../lib/commerce';
+// import { commerce } from '../../lib/commerce';
 
 import './Product.css';
 
 const Product = ({ product }) => {
-  const [variant, setVariant] = useState([]);
-  const [totalInventory, setTotalInventory] = useState([]);
+  //   const [variant, setVariant] = useState([]);
+  //   const [totalInventory, setTotalInventory] = useState([]);
 
-  useEffect(() => {
-    commerce.products.getVariants(product.id).then((x) => setVariant(x.data));
-  }, [product.id]);
+  //   useEffect(() => {
+  //     commerce.products.getVariants(product.id).then((x) => setVariant(x.data));
+  //   }, [product.id]);
 
-  useEffect(() => {
-    const totals = variant.reduce((total, item) => {
-      return total + item.inventory;
-    }, 0);
+  //   useEffect(() => {
+  //     const totals = variant.reduce((total, item) => {
+  //       return total + item.inventory;
+  //     }, 0);
 
-    setTotalInventory(totals);
-  }, [variant, totalInventory]);
+  //     setTotalInventory(totals);
+  //   }, [variant, totalInventory]);
 
   return (
     <Link

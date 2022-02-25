@@ -24,6 +24,10 @@ function App() {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
+
   return (
     <div className='App'>
       {inDevelopment ? null : <Navbar />}
