@@ -3,3 +3,43 @@
   display: flex;
   justify-content: center;
 } */
+
+.Product-top {
+  display: flex;
+  justify-content: center;
+}
+
+.Product-image {
+  width: 420px;
+}
+
+.Product-bottom {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1380px) {
+  .Product-image {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .Product-image {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .Product-image {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Product-image {
+    width: 160px;
+  }
+}
