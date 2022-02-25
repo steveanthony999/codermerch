@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import AllProductsPage from './pages/AllProductsPage';
 
 function App() {
+  const [inDevelopment, setInDevelopment] = useState(true);
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar />
+      {inDevelopment ? null : <Navbar />}
       <Switch>
         <Route exact path='/'>
           <Home />
@@ -36,7 +37,7 @@ function App() {
         </Route>
         <Route path='/products/:id'>{/* <AllProductsPage /> */}</Route>
       </Switch>
-      <Footer />
+      {inDevelopment ? null : <Footer />}
     </div>
   );
 }
