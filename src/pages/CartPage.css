@@ -1,0 +1,129 @@
+.CartPage {
+  width: 100vw;
+  min-height: 80vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CartPage h1 {
+  margin-top: 2rem;
+}
+
+.CartPage-container {
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.CartPage-container-left {
+  width: 70%;
+}
+
+.CartPage-container-right {
+  width: 30%;
+}
+
+.CartPage-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.CartPage-empty a {
+  padding: 0;
+  margin-top: 2rem;
+  border: none;
+  outline: none;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  z-index: 1;
+}
+
+.CartPage-empty a {
+  animation: animate 18s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-moz-keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.CartPage-empty a:hover {
+  cursor: pointer;
+}
+
+.CartPage-empty a:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5%;
+}
+
+.CartPage-empty a:hover:before {
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}
+
+.CartPage-info {
+  margin-top: 2rem;
+  border: 1px solid green;
+}

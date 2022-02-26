@@ -71,7 +71,7 @@ const ProductPage = ({ onAddToCart }) => {
             {isCartButtonActive ? 'ADD TO CART' : 'SELECT A SIZE'}
           </button>
           <p className='ProductPage-info'>
-            ALL TAXES AND SHIPPING ARE INCLUDED
+            ALL TAXES AND SHIPPING ARE INCLUDED FOR U.S. ORDERS
           </p>
           <hr />
           <div
