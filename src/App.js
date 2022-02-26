@@ -20,10 +20,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('');
   const [userDataFromStorage, setUserDataFromStorage] = useState();
 
-  useEffect(() => {
-    console.log(setInDevelopment);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
   // FETCH PRODUCTS
   const fetchProducts = async () => {
     const { data } = await commerce.products.list();
