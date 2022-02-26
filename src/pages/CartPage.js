@@ -30,14 +30,26 @@ const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
       <div className='CartPage-container-right'>
         <div className='CartPage-info'>
           <div className='CartPage-info-top'>
+            <p>Cart totals</p>
+          </div>
+          <div className='CartPage-info-middle'>
+            <p>Subtotal: {cart.subtotal.formatted_with_symbol}</p>
+            <p className='CartPage-note'>
+              Shipping and taxes are included for all U.S. orders.
+            </p>
+            <p className='CartPage-note'>
+              Shipping charges to Canada and Mexico will be added during
+              checkout.
+            </p>
+          </div>
+          <div className='CartPage-info-bottom'>
+            <Link to='/checkout'>
+              <button className='CartPage-btn'>CHECKOUT</button>
+            </Link>
             <div className='CartPage-btn-remove' onClick={onEmptyCart}>
               empty cart
             </div>
-            <p>Subtotal: {cart.subtotal.formatted_with_symbol}</p>
           </div>
-          <Link to='/checkout'>
-            <button className='CartPage-btn-full'>CHECKOUT</button>
-          </Link>
         </div>
       </div>
     </div>
@@ -50,9 +62,7 @@ const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
   return (
     <div className='CartPage'>
       <h1>Cart</h1>
-      {/* <div className='CartPage-container'> */}
       {!cart.line_items.length ? <EmptyCart /> : <FilledCart />}
-      {/* </div> */}
     </div>
   );
 };

@@ -140,7 +140,6 @@
   z-index: -1;
   background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
   background-size: 400%;
-  border-radius: 40px;
   opacity: 0;
   transition: 0.5%;
 }
