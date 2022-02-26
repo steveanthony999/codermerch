@@ -11,6 +11,7 @@
 body {
   background: #111111;
   color: rgba(0, 255, 0, 1);
+  letter-spacing: 2px;
 }
 
 a {
