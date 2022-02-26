@@ -72,7 +72,7 @@ const AddressForm = ({ checkoutToken, next, userDataFromStorage }) => {
 
   useEffect(() => {
     fetchShippingCountries(checkoutToken.id);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (shippingCountry) fetchSubdivisions(shippingCountry);
@@ -86,7 +86,7 @@ const AddressForm = ({ checkoutToken, next, userDataFromStorage }) => {
         shippingSubdivision
       );
     }
-  }, [shippingSubdivision]);
+  }, [shippingSubdivision]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className='AddressForm'>
