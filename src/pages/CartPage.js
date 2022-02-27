@@ -1,11 +1,85 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SentimentVeryDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentVeryDissatisfiedOutlined';
+
+import { commerce } from '../lib/commerce';
 
 import CartItem from '../components/CartItem/CartItem';
 
 import './CartPage.css';
 
-const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
+// DISCOUNT FORM
+// DISCOUNT FORM
+// DISCOUNT FORM
+const DiscountForm = ({ cart, passResult }) => {
+  const [text, setText] = useState('');
+  const [checkoutTokenTwo, setCheckoutTokenTwo] = useState(null);
+  const [discountResult, setDiscountResult] = useState(null);
+
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, {
+          type: 'cart',
+        });
+
+        setCheckoutTokenTwo(token);
+      } catch (error) {
+        console.log('from cart page ' + error);
+      }
+    };
+
+    generateToken();
+  }, [cart]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleChange = (e) => {
+    const discount = e.target.value;
+
+    setText(discount);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    commerce.checkout
+      .checkDiscount(checkoutTokenTwo.id, { code: text })
+      .then((res) => {
+        setDiscountResult(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    passResult(discountResult);
+  }, [discountResult]);
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type='text'
+          value={text}
+          onChange={handleChange}
+          placeholder='Discount Code?'
+        />
+        <button>Apply</button>
+      </form>
+    </>
+  );
+};
+
+// CART PAGE
+// CART PAGE
+// CART PAGE
+const CartPage = ({
+  cart,
+  onEmptyCart,
+  onRemoveFromCart,
+  onUpdateCartQty,
+  passDiscountCode,
+}) => {
+  const [discountResults, setDiscountResults] = useState(null);
+
   const EmptyCart = () => (
     <div className='CartPage-empty'>
       <br />
@@ -13,6 +87,17 @@ const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
       <Link to='/products'>go shopping</Link>
     </div>
   );
+
+  const passResult = (e) => {
+    // e && console.log(e.live.total.formatted_with_symbol);
+    e && setDiscountResults(e);
+  };
+
+  const handleCheckoutClick = (e) => {
+    discountResults &&
+      discountResults.valid === true &&
+      passDiscountCode(discountResults.code);
+  };
 
   const FilledCart = () => (
     <div className='CartPage-container'>
@@ -34,6 +119,15 @@ const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
           </div>
           <div className='CartPage-info-middle'>
             <p>Subtotal: {cart.subtotal.formatted_with_symbol}</p>
+            {/*  */}
+            {discountResults && discountResults.valid === true ? (
+              <p>
+                New total: {discountResults.live.total.formatted_with_symbol}
+              </p>
+            ) : discountResults && discountResults.valid === false ? (
+              <p>code not valid</p>
+            ) : null}
+            {/*  */}
             <p className='CartPage-note'>
               Shipping and taxes are included for all U.S. orders.
             </p>
@@ -44,10 +138,17 @@ const CartPage = ({ cart, onEmptyCart, onRemoveFromCart, onUpdateCartQty }) => {
           </div>
           <div className='CartPage-info-bottom'>
             <Link to='/checkout'>
-              <button className='CartPage-btn'>CHECKOUT</button>
+              <button className='CartPage-btn' onClick={handleCheckoutClick}>
+                CHECKOUT
+              </button>
             </Link>
-            <div className='CartPage-btn-remove' onClick={onEmptyCart}>
-              empty cart
+            <div className='CartPage-bottom-container'>
+              <div className='CartPage-btn-remove' onClick={onEmptyCart}>
+                empty cart
+              </div>
+              <div className='CartPage-discount-container'>
+                <DiscountForm cart={cart} passResult={passResult} />
+              </div>
             </div>
           </div>
         </div>

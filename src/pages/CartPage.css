@@ -258,6 +258,13 @@
   cursor: pointer;
 }
 
+.CartPage-bottom-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 768px) {
   .CartPage h1 {
     margin-top: 1rem;

@@ -26,6 +26,7 @@ const CheckoutPage = ({
   onCaptureCheckout,
   error,
   userDataFromStorage,
+  discountCode,
 }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
@@ -108,6 +109,7 @@ const CheckoutPage = ({
         backStep={backStep}
         nextStep={nextStep}
         onCaptureCheckout={onCaptureCheckout}
+        discountCode={discountCode}
       />
     );
 

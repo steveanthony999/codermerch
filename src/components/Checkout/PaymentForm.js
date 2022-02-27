@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import { motion } from 'framer-motion';
@@ -7,6 +8,8 @@ import {
   ElementsConsumer,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+
+import { commerce } from '../../lib/commerce';
 
 import './PaymentForm.css';
 
@@ -20,7 +23,10 @@ const PaymentForm = ({
   backStep,
   nextStep,
   onCaptureCheckout,
+  discountCode,
 }) => {
+  const [totalCart, setTotalCart] = useState(null);
+
   const handleSubmit = async (event, elements, stripe) => {
     event.preventDefault();
 
@@ -73,9 +79,16 @@ const PaymentForm = ({
       nextStep();
     }
   };
+
+  useEffect(() => {
+    commerce.checkout
+      .checkDiscount(checkoutToken.id, { code: discountCode })
+      .then((res) => setTotalCart(res)); // discount code works, now how do I update the totals?
+  }, []);
+
   return (
     <div className='PaymentForm'>
-      <Review checkoutToken={checkoutToken} />
+      <Review checkoutToken={checkoutToken} price={totalCart} />
       <hr />
       <Typography variant='h6' gutterBottom style={{ margin: '20px 0' }}>
         Payment Method
@@ -113,7 +126,11 @@ const PaymentForm = ({
                     },
                   }}
                 >
-                  Pay {checkoutToken.live.subtotal.formatted_with_symbol}
+                  {/* Pay {checkoutToken.live.subtotal.formatted_with_symbol} */}
+                  Pay
+                  {totalCart === null
+                    ? checkoutToken.live.subtotal.formatted_with_symbol
+                    : totalCart.live.total.formatted_with_symbol}
                 </motion.button>
               </div>
             </form>

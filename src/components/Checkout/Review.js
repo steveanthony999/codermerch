@@ -1,6 +1,13 @@
+import { useEffect, useState } from 'react';
 import { Typography, List, ListItem, ListItemText } from '@mui/material';
 
-const Review = ({ checkoutToken }) => {
+const Review = ({ checkoutToken, price }) => {
+  const [newPrice, setNewPrice] = useState();
+
+  useEffect(() => {
+    price && setNewPrice(price.live.total.formatted_with_symbol);
+  }, [price]);
+
   return (
     <>
       <Typography variant='h6'>Order Summary</Typography>
@@ -25,7 +32,10 @@ const Review = ({ checkoutToken }) => {
         <ListItem style={{ padding: '10px 0' }}>
           <ListItemText primary='Total' />
           <Typography variant='subtitle1' style={{ fontWeight: 700 }}>
-            {checkoutToken.live.subtotal.formatted_with_symbol}
+            {/* {checkoutToken.live.subtotal.formatted_with_symbol} */}
+            {newPrice
+              ? newPrice
+              : checkoutToken.live.subtotal.formatted_with_symbol}
           </Typography>
         </ListItem>
       </List>

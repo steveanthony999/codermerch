@@ -19,6 +19,7 @@ function App() {
   const [order, setOrder] = useState({});
   const [errorMessage, setErrorMessage] = useState('');
   const [userDataFromStorage, setUserDataFromStorage] = useState();
+  const [discountCode, setDiscountCode] = useState('');
 
   // FETCH PRODUCTS
   const fetchProducts = async () => {
@@ -110,6 +111,10 @@ function App() {
     }
   }, []);
 
+  const passDiscountCode = (e) => {
+    setDiscountCode(e);
+  };
+
   return (
     <div className='App'>
       {inDevelopment ? null : <Navbar cart={cart.total_items} />}
@@ -129,6 +134,7 @@ function App() {
             onEmptyCart={handleEmptyCart}
             onRemoveFromCart={handleRemoveFromCart}
             onUpdateCartQty={handleUpdateCartQty}
+            passDiscountCode={passDiscountCode}
           />
         </Route>
         <Route exact path='/checkout'>
@@ -138,6 +144,7 @@ function App() {
             onCaptureCheckout={handleCaptureCheckout}
             error={errorMessage}
             userDataFromStorage={userDataFromStorage}
+            discountCode={discountCode}
           />
         </Route>
       </Switch>
