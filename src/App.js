@@ -13,7 +13,7 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
-  const [inDevelopment, setInDevelopment] = useState(false);
+  const [inDevelopment, setInDevelopment] = useState(true);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
