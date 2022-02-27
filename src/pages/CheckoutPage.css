@@ -1,0 +1,31 @@
+.CheckoutPage {
+  min-height: 80vh;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.Checkout-container .MuiPaper-root {
+  padding: 2rem;
+}
+
+.Confirmation {
+  margin-top: 2rem;
+}
+
+.CheckoutPage-spinner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .CheckoutPage {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+
+  .Checkout-container .MuiPaper-root {
+    padding: 1rem;
+  }
+}

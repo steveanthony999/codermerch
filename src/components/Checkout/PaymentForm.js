@@ -83,7 +83,7 @@ const PaymentForm = ({
   useEffect(() => {
     commerce.checkout
       .checkDiscount(checkoutToken.id, { code: discountCode })
-      .then((res) => setTotalCart(res)); // discount code works, now how do I update the totals?
+      .then((res) => setTotalCart(res));
   }, []);
 
   return (
@@ -101,21 +101,11 @@ const PaymentForm = ({
               <br />
               <br />
               <div className='PaymentForm-footer'>
-                <motion.div
-                  onClick={backStep}
-                  className='PaymentForm-back'
-                  whileHover={{
-                    scale: 1.05,
-                    transition: {
-                      duration: 0.1,
-                      type: 'spring',
-                    },
-                  }}
-                >
+                <div onClick={backStep} className='PaymentForm-back'>
                   <ArrowBackOutlinedIcon />
-                </motion.div>
+                </div>
                 <motion.button
-                  className='btn-full'
+                  className='PaymentForm-btn'
                   type='submit'
                   disabled={!stripe}
                   whileHover={{

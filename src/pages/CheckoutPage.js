@@ -62,7 +62,7 @@ const CheckoutPage = ({
   let Confirmation = () =>
     order.customer ? (
       <>
-        <div>
+        <div className='Confirmation'>
           <Typography variant='h5'>
             Thank you for your purchase, {order.customer.firstname}{' '}
             {order.customer.lastname}!

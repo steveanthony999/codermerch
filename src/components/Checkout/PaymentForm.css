@@ -1,0 +1,21 @@
+.PaymentForm {
+  margin-top: 2rem;
+}
+
+.PaymentForm-back:hover {
+  cursor: pointer;
+}
+
+.PaymentForm-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: black;
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.PaymentForm-btn:hover {
+  cursor: pointer;
+}

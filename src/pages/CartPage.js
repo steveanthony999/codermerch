@@ -118,10 +118,25 @@ const CartPage = ({
             <p>Cart totals</p>
           </div>
           <div className='CartPage-info-middle'>
-            <p>Subtotal: {cart.subtotal.formatted_with_symbol}</p>
+            <p
+              style={{
+                textDecoration:
+                  discountResults && discountResults.valid === true
+                    ? 'line-through'
+                    : 'none',
+                opacity:
+                  discountResults && discountResults.valid === true ? 0.5 : 1,
+                color:
+                  discountResults && discountResults.valid === true
+                    ? 'red'
+                    : 'green',
+              }}
+            >
+              Subtotal: {cart.subtotal.formatted_with_symbol}
+            </p>
             {/*  */}
             {discountResults && discountResults.valid === true ? (
-              <p>
+              <p style={{ marginTop: '1rem' }}>
                 New total: {discountResults.live.total.formatted_with_symbol}
               </p>
             ) : discountResults && discountResults.valid === false ? (

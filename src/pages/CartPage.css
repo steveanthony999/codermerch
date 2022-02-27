@@ -265,6 +265,36 @@
   justify-content: space-between;
 }
 
+.CartPage-bottom-container form input {
+  margin-top: 2rem;
+  background: transparent;
+  border: 1px solid green;
+  padding: 0.5rem;
+  color: white;
+}
+
+.CartPage-bottom-container form input:focus {
+  outline: none;
+}
+
+.CartPage-bottom-container form button {
+  background: transparent;
+  border: 1px solid green;
+  padding: 0.5rem;
+  color: white;
+}
+
+.CartPage-bottom-container form button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  .CartPage-bottom-container form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .CartPage h1 {
     margin-top: 1rem;
@@ -285,5 +315,11 @@
 
   .CartPage-info-middle p {
     text-align: left;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .CartPage-bottom-container {
+    flex-direction: column;
   }
 }

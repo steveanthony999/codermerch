@@ -188,7 +188,7 @@ const AddressForm = ({ checkoutToken, next, userDataFromStorage }) => {
             </Link>
             <motion.button
               type='submit'
-              className='btn-full'
+              className='AddressForm-submit-btn'
               whileHover={{
                 scale: 1.01,
                 transition: {
