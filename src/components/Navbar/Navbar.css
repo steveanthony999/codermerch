@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   box-shadow: 0 10px 20px rgba(0, 255, 0, 0.25);
+  position: relative;
+  z-index: 20;
 }
 
 .Navbar-container {

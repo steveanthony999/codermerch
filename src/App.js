@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { commerce } from './lib/commerce';
+import { MobileMenuProvider } from './MobileMenuContext';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import MobileMenu from './components/MobileMenu/MobileMenu';
 
 import Home from './pages/Home';
 import AllProductsPage from './pages/AllProductsPage';
@@ -12,8 +14,10 @@ import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 
+import './App.css';
+
 function App() {
-  const [inDevelopment, setInDevelopment] = useState(true);
+  const [inDevelopment, setInDevelopment] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -116,40 +120,43 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      {inDevelopment ? null : <Navbar cart={cart.total_items} />}
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/products'>
-          <AllProductsPage products={products} />
-        </Route>
-        <Route exact path='/products/:id'>
-          <ProductPage onAddToCart={handleAddToCart} />
-        </Route>
-        <Route exact path='/cart'>
-          <CartPage
-            cart={cart}
-            onEmptyCart={handleEmptyCart}
-            onRemoveFromCart={handleRemoveFromCart}
-            onUpdateCartQty={handleUpdateCartQty}
-            passDiscountCode={passDiscountCode}
-          />
-        </Route>
-        <Route exact path='/checkout'>
-          <CheckoutPage
-            cart={cart}
-            order={order}
-            onCaptureCheckout={handleCaptureCheckout}
-            error={errorMessage}
-            userDataFromStorage={userDataFromStorage}
-            discountCode={discountCode}
-          />
-        </Route>
-      </Switch>
-      {inDevelopment ? null : <Footer />}
-    </div>
+    <MobileMenuProvider>
+      <div className='App'>
+        {inDevelopment ? null : <Navbar cart={cart.total_items} />}
+        <MobileMenu />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route exact path='/products'>
+            <AllProductsPage products={products} />
+          </Route>
+          <Route exact path='/products/:id'>
+            <ProductPage onAddToCart={handleAddToCart} />
+          </Route>
+          <Route exact path='/cart'>
+            <CartPage
+              cart={cart}
+              onEmptyCart={handleEmptyCart}
+              onRemoveFromCart={handleRemoveFromCart}
+              onUpdateCartQty={handleUpdateCartQty}
+              passDiscountCode={passDiscountCode}
+            />
+          </Route>
+          <Route exact path='/checkout'>
+            <CheckoutPage
+              cart={cart}
+              order={order}
+              onCaptureCheckout={handleCaptureCheckout}
+              error={errorMessage}
+              userDataFromStorage={userDataFromStorage}
+              discountCode={discountCode}
+            />
+          </Route>
+        </Switch>
+        {inDevelopment ? null : <Footer />}
+      </div>
+    </MobileMenuProvider>
   );
 }
 
