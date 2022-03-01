@@ -4,7 +4,7 @@
 
 Run npm install
 
-### Tech used...
+### Libraries used...
 
 React
 React Router Dom
@@ -15,3 +15,4 @@ FontAwesome
 Material UI
 React Hook Form
 Framer Motion
+React Toastify
