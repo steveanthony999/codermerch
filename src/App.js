@@ -17,7 +17,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import './App.css';
 
 function App() {
-  const [inDevelopment, setInDevelopment] = useState(true);
+  const [inDevelopment, setInDevelopment] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});

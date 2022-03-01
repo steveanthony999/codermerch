@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SentimentVeryDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentVeryDissatisfiedOutlined';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { commerce } from '../lib/commerce';
 
@@ -89,7 +91,6 @@ const CartPage = ({
   );
 
   const passResult = (e) => {
-    // e && console.log(e.live.total.formatted_with_symbol);
     e && setDiscountResults(e);
   };
 
@@ -99,8 +100,21 @@ const CartPage = ({
       passDiscountCode(discountResults.code);
   };
 
+  const Msg = () => (
+    <div
+      className='CartPage-toast'
+      style={{
+        border: '2px solid green',
+        boxShadow: '0 0 20px rgba(0,255,0,0.5)',
+      }}
+    >
+      Emptied Cart
+    </div>
+  );
+
   const FilledCart = () => (
     <div className='CartPage-container'>
+      <ToastContainer autoClose={false} theme='dark' />
       <div className='CartPage-container-left'>
         {cart.line_items.map((item) => (
           <div key={item.id}>
@@ -158,7 +172,14 @@ const CartPage = ({
               </button>
             </Link>
             <div className='CartPage-bottom-container'>
-              <div className='CartPage-btn-remove' onClick={onEmptyCart}>
+              <div
+                className='CartPage-btn-remove'
+                onClick={() => {
+                  toast(<Msg />, {
+                    onOpen: onEmptyCart,
+                  });
+                }}
+              >
                 empty cart
               </div>
               <div className='CartPage-discount-container'>

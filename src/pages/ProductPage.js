@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { commerce } from '../lib/commerce';
 
@@ -26,8 +28,28 @@ const ProductPage = ({ onAddToCart }) => {
       .then((x) => setVariant(x.data));
   }, [location.state.id]);
 
+  const Msg = () => (
+    <div
+      className='ProductPage-toast'
+      style={{
+        border: '2px solid green',
+        boxShadow: '0 0 20px rgba(0,255,0,0.5)',
+      }}
+    >
+      Item added to cart!
+      <Link to='/cart'>Go to cart</Link>
+    </div>
+  );
+
+  const addedToCartNotification = () => {
+    toast(<Msg />, {
+      onOpen: () => onAddToCart(location.state.id, 1, sizeId),
+    });
+  };
+
   return (
     <div className='ProductPage'>
+      <ToastContainer autoClose={false} theme='dark' />
       <div className='ProductPage-container'>
         <div className='ProductPage-container-left'>
           <img
@@ -65,7 +87,8 @@ const ProductPage = ({ onAddToCart }) => {
                 ? 'ProductPage-btn'
                 : 'ProductPage-btn-disabled'
             }
-            onClick={() => onAddToCart(location.state.id, 1, sizeId)}
+            // onClick={() => onAddToCart(location.state.id, 1, sizeId)}
+            onClick={addedToCartNotification}
             disabled={!isCartButtonActive}
           >
             {isCartButtonActive ? 'ADD TO CART' : 'SELECT A SIZE'}
