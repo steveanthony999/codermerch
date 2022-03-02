@@ -10,7 +10,8 @@
 }
 
 .Product-image {
-  width: 420px;
+  /* width: 420px; */
+  width: 100%;
 }
 
 .Product-bottom {
@@ -20,29 +21,7 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 1380px) {
-  .Product-image {
-    width: 320px;
-  }
-}
-
-@media screen and (max-width: 1080px) {
-  .Product-image {
-    width: 280px;
-  }
-}
-
-@media screen and (max-width: 960px) {
-  .Product-image {
-    width: 200px;
-  }
-}
-
 @media screen and (max-width: 500px) {
-  .Product-image {
-    width: 160px;
-  }
-
   .Product-bottom {
     padding: 2rem 2rem;
   }
