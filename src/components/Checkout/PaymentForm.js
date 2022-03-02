@@ -15,7 +15,7 @@ import './PaymentForm.css';
 
 import Review from './Review';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY_TEST);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY_LIVE);
 
 const PaymentForm = ({
   checkoutToken,
