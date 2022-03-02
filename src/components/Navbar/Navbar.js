@@ -21,8 +21,8 @@ const Navbar = ({ cart }) => {
   return (
     <nav className='Navbar'>
       {isSmallScreen ? (
-        <div onClick={toggleMenu} className='Navbar-container'>
-          <div className='Navbar-container-left'>
+        <div className='Navbar-container'>
+          <div className='Navbar-container-left' onClick={toggleMenu}>
             {menuOpen ? (
               <img src={closeMenu} alt='cm' height={'16px'} />
             ) : (

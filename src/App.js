@@ -8,17 +8,18 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import HomePage from './pages/HomePage';
 import AllProductsPage from './pages/AllProductsPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 
+import ScrollToTop from './utils/ScrollToTop';
 import './App.css';
 
 function App() {
-  const [inDevelopment, setInDevelopment] = useState(false);
+  // const [inDevelopment, setInDevelopment] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -123,8 +124,10 @@ function App() {
   return (
     <MobileMenuProvider>
       <div className='App'>
-        {inDevelopment ? null : <Navbar cart={cart.total_items} />}
+        {/* {inDevelopment ? null : <Navbar cart={cart.total_items} />} */}
+        <Navbar cart={cart.total_items} />
         <MobileMenu />
+        <ScrollToTop />
         <Switch>
           <Route exact path='/'>
             {/* <Home /> */}
@@ -156,7 +159,8 @@ function App() {
             />
           </Route>
         </Switch>
-        {inDevelopment ? null : <Footer />}
+        {/* {inDevelopment ? null : <Footer />} */}
+        <Footer />
       </div>
     </MobileMenuProvider>
   );
