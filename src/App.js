@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 
 import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import AllProductsPage from './pages/AllProductsPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
@@ -17,7 +18,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import './App.css';
 
 function App() {
-  const [inDevelopment, setInDevelopment] = useState(true);
+  const [inDevelopment, setInDevelopment] = useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({});
@@ -126,7 +127,8 @@ function App() {
         <MobileMenu />
         <Switch>
           <Route exact path='/'>
-            <Home />
+            {/* <Home /> */}
+            <HomePage />
           </Route>
           <Route exact path='/products'>
             <AllProductsPage products={products} />
