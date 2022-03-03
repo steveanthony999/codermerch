@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import ReactGa from 'react-ga';
 
 import { commerce } from './lib/commerce';
 import { MobileMenuProvider } from './MobileMenuContext';
@@ -120,6 +121,13 @@ function App() {
   const passDiscountCode = (e) => {
     setDiscountCode(e);
   };
+
+  // GOOGLE ANALYTICS
+  useEffect(() => {
+    ReactGa.initialize('G-TFYSTDN8Q7');
+
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <MobileMenuProvider>

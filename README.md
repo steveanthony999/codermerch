@@ -16,3 +16,5 @@ Material UI
 React Hook Form
 Framer Motion
 React Toastify
+React Responsive
+React GA (google analytics)
