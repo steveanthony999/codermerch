@@ -6,15 +6,17 @@ Run npm install
 
 ### Libraries used...
 
-React
-React Router Dom
-Stripe
-Commerce Js
-React Mailchimp Subscribe
-FontAwesome
-Material UI
-React Hook Form
-Framer Motion
-React Toastify
-React Responsive
-React GA (google analytics)
+<ul>
+<li>React</li>
+<li>React Router Dom</li>
+<li>Stripe</li>
+<li>Commerce Js</li>
+<li>React Mailchimp Subscribe</li>
+<li>FontAwesome</li>
+<li>Material UI</li>
+<li>React Hook Form</li>
+<li>Framer Motion</li>
+<li>React Toastify</li>
+<li>React Responsive</li>
+<li>React GA (google analytics)</li>
+</ul>
