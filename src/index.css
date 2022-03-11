@@ -22,3 +22,87 @@ a {
 h1 {
   font-weight: 600;
 }
+
+.btn-glow {
+  position: relative;
+  margin-top: 4rem;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    yellow,
+    orange,
+    red,
+    violet,
+    purple,
+    blue,
+    yellow
+  );
+  background-size: 400%;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.btn-glow {
+  animation: animate 18s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-moz-keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.btn-glow:hover {
+  cursor: pointer;
+}
+
+.btn-glow:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+  background-size: 400%;
+  opacity: 0;
+  transition: 0.5%;
+}
+
+.btn-glow:hover:before {
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  opacity: 1;
+  animation: animate 8s linear infinite;
+}

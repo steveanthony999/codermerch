@@ -10,7 +10,8 @@ import Footer from './components/Footer/Footer';
 import MobileMenu from './components/MobileMenu/MobileMenu';
 
 // import Home from './pages/Home';
-import HomePage from './pages/HomePage';
+// import HomePage from './pages/HomePage';
+import HomePage2 from './pages/HomePage2';
 import AllProductsPage from './pages/AllProductsPage';
 import ProductPage from './pages/ProductPage';
 import CartPage from './pages/CartPage';
@@ -139,7 +140,8 @@ function App() {
         <Switch>
           <Route exact path='/'>
             {/* <Home /> */}
-            <HomePage />
+            {/* <HomePage /> */}
+            <HomePage2 />
           </Route>
           <Route exact path='/products'>
             <AllProductsPage products={products} />
