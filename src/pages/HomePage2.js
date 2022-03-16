@@ -77,7 +77,7 @@ const HomePage2 = () => {
       </div>
       {/* SUBSCRIBE */}
       <div className='HomePage-drop-info'>
-        <h4>mid-drop 03.16.2022</h4>
+        <h4>mid-drop 03.18.2022</h4>
         <MailchimpSubscribe
           url={url}
           render={({ subscribe, status, message }) => (
